@@ -1,0 +1,41 @@
+﻿@model WA_MVC.Models.Book
+@{
+    ViewData["Title"] = "Contactus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Contact us</h1>
+
+@if (ViewBag.Message != null)
+{
+    <h2>@ViewBag.Message</h2>
+}
+@using (Html.BeginForm("Contactus", "Home", FormMethod.Post))
+{ 
+    @Html.ValidationSummary(true)
+    <div>
+        @Html.LabelFor(book => book.Id)
+        @Html.TextBoxFor(book => book.Id)
+        @Html.ValidationMessageFor(book => book.Id)
+    </div>
+    <div>
+        @Html.LabelFor(book => book.Name)
+        @Html.TextBoxFor(book => book.Name)
+        @Html.ValidationMessageFor(book => book.Name)
+    </div>
+    <div>
+        @Html.LabelFor(book => book.CatId)
+        @Html.TextBoxFor(book => book.CatId)
+        @Html.ValidationMessageFor(book => book.CatId)
+    </div>
+    <div>
+        @Html.LabelFor(book => book.Author)
+        @Html.TextBoxFor(book => book.Author)
+        @Html.ValidationMessageFor(book => book.Author)
+    </div>
+    <div>
+        @Html.LabelFor(book => book.Price)
+        @Html.TextBoxFor(book => book.Price)
+        @Html.ValidationMessageFor(book => book.Price)
+    </div>
+    <button type="submit">Send Message</button>
+}
